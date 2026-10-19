@@ -13,6 +13,9 @@ services:
             # -----------------------------------------------------------
             - laravel-storage-production:/var/www/storage:ro
             - laravel-public-assets:/var/www/public/build:ro
+            # Share runtime uploads (candidate photos, branding, imports) with PHP-FPM.
+            # The ':ro' option keeps Nginx from writing to the uploads directory.
+            - laravel-uploads:/var/www/public/uploads:ro
         networks:
             - laravel-production
         ports:
@@ -36,6 +39,7 @@ services:
         volumes:
             - laravel-public-assets:/var/www/public/build # Mount built public assets to ensure the manifest.json and hashed files match between Nginx and PHP-FPM
             - laravel-storage-production:/var/www/storage # Mount the storage volume
+            - laravel-uploads:/var/www/public/uploads # Mount uploads so Nginx can serve files written at runtime
         env_file:
             # Load the environment variables from the Laravel application.
             # The database connection is configured here and points to an
@@ -60,3 +64,4 @@ networks:
 volumes:
     laravel-storage-production:
     laravel-public-assets:
+    laravel-uploads:
