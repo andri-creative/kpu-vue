@@ -34,7 +34,7 @@ WORKDIR /var/www
 COPY . /var/www
 
 # Install PHP dependencies (required so `php artisan wayfinder:generate` can run)
-RUN composer install --no-dev --optimize-autoloader --no-interaction --no-progress --prefer-dist
+RUN composer install --no-dev --optimize-autoloader --no-interaction --no-progress --prefer-dist --ignore-platform-req=ext-gd
 
 # Install Node.js dependencies and build assets
 RUN npm install && npm run build

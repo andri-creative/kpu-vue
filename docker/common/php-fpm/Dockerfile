@@ -14,9 +14,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libcurl4-openssl-dev \
     libicu-dev \
     libzip-dev \
+<<<<<<< Updated upstream
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libpng-dev \
+=======
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+>>>>>>> Stashed changes
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) \
     pdo_mysql \
@@ -69,6 +75,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpng16-16 \
     libfcgi-bin \
     procps \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
     && apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Download and install php-fpm health check script
