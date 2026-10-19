@@ -35,9 +35,9 @@ const submit = () => {
             <h1 class="text-3xl font-bold tracking-tight">
                 Profil & Visi Misi Kandidat
             </h1>
-            <p class="text-muted-foreground mt-2">
-                Perbarui visi dan misi Anda. Data ini tampil ke pemilih
-                saat voting berlangsung.
+            <p class="mt-2 text-muted-foreground">
+                Perbarui visi dan misi Anda. Data ini tampil ke pemilih saat
+                voting berlangsung.
             </p>
         </div>
 
@@ -45,22 +45,19 @@ const submit = () => {
             <CardHeader>
                 <CardTitle>Informasi Kandidat</CardTitle>
                 <CardDescription>
-                    Data berikut diisi oleh admin dan tidak dapat diubah
-                    sendiri
+                    Data berikut diisi oleh admin dan tidak dapat diubah sendiri
                 </CardDescription>
             </CardHeader>
             <CardContent class="space-y-4">
                 <div class="grid grid-cols-3 gap-4">
-                    <div class="text-muted-foreground font-medium">
-                        NIS
-                    </div>
+                    <div class="font-medium text-muted-foreground">NIS</div>
                     <div class="col-span-2">
                         {{ candidate.nis }}
                     </div>
                 </div>
 
                 <div class="grid grid-cols-3 gap-4">
-                    <div class="text-muted-foreground font-medium">
+                    <div class="font-medium text-muted-foreground">
                         Nama Lengkap
                     </div>
                     <div class="col-span-2">
@@ -69,16 +66,14 @@ const submit = () => {
                 </div>
 
                 <div class="grid grid-cols-3 gap-4">
-                    <div class="text-muted-foreground font-medium">
-                        Kelas
-                    </div>
+                    <div class="font-medium text-muted-foreground">Kelas</div>
                     <div class="col-span-2">
                         {{ candidate.kelas }}
                     </div>
                 </div>
 
                 <div class="grid grid-cols-3 gap-4">
-                    <div class="text-muted-foreground font-medium">
+                    <div class="font-medium text-muted-foreground">
                         Nomor Urut
                     </div>
                     <div class="col-span-2">
@@ -86,13 +81,8 @@ const submit = () => {
                     </div>
                 </div>
 
-                <div
-                    v-if="candidate.foto_url"
-                    class="grid grid-cols-3 gap-4"
-                >
-                    <div class="text-muted-foreground font-medium">
-                        Foto
-                    </div>
+                <div v-if="candidate.foto_url" class="grid grid-cols-3 gap-4">
+                    <div class="font-medium text-muted-foreground">Foto</div>
                     <div class="col-span-2">
                         <img
                             :src="candidate.foto_url"
@@ -132,14 +122,13 @@ const submit = () => {
                     </div>
 
                     <div class="flex items-center justify-between gap-3">
-                        <p class="text-muted-foreground flex items-center gap-1.5 text-xs">
+                        <p
+                            class="flex items-center gap-1.5 text-xs text-muted-foreground"
+                        >
                             <ShieldCheck class="size-3.5" />
                             Perubahan langsung tersimpan dan tampil ke pemilih.
                         </p>
-                        <Button
-                            type="submit"
-                            :disabled="form.processing"
-                        >
+                        <Button type="submit" :disabled="form.processing">
                             <LoaderCircle
                                 v-if="form.processing"
                                 class="mr-2 size-4 animate-spin"

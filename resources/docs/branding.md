@@ -11,14 +11,14 @@ Akses: `/settings/branding` (middleware `auth` + `role:admin`).
 
 ## Yang Dapat Disesuaikan
 
-| Field | Dipakai di |
-|---|---|
-| Nama aplikasi | Sidebar, judul tab, halaman login, ekspor Excel/PDF, kartu siswa |
-| Tagline | Halaman login |
-| Logo | Sidebar, header, halaman login |
-| Logo kedua (mis. OSIS) | Halaman login, di samping logo utama |
-| Favicon | Ikon tab browser |
-| Warna utama & gradasi | Gradasi halaman login |
+| Field                  | Dipakai di                                                       |
+| ---------------------- | ---------------------------------------------------------------- |
+| Nama aplikasi          | Sidebar, judul tab, halaman login, ekspor Excel/PDF, kartu siswa |
+| Tagline                | Halaman login                                                    |
+| Logo                   | Sidebar, header, halaman login                                   |
+| Logo kedua (mis. OSIS) | Halaman login, di samping logo utama                             |
+| Favicon                | Ikon tab browser                                                 |
+| Warna utama & gradasi  | Gradasi halaman login                                            |
 
 Logo dan favicon bisa diunggah (file) **atau** ditempel sebagai URL.
 

@@ -17,7 +17,8 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
     title: 'Konfirmasi Hapus',
-    description: 'Apakah Anda yakin ingin menghapus data ini? Tindakan ini tidak dapat dibatalkan.',
+    description:
+        'Apakah Anda yakin ingin menghapus data ini? Tindakan ini tidak dapat dibatalkan.',
 });
 
 const emit = defineEmits<{
@@ -36,10 +37,7 @@ function confirm() {
 </script>
 
 <template>
-    <Dialog
-        :open="open"
-        @update:open="emit('update:open', $event)"
-    >
+    <Dialog :open="open" @update:open="emit('update:open', $event)">
         <DialogContent class="sm:max-w-md">
             <DialogHeader>
                 <DialogTitle>{{ title }}</DialogTitle>
@@ -48,18 +46,8 @@ function confirm() {
                 </DialogDescription>
             </DialogHeader>
             <DialogFooter class="gap-3">
-                <Button
-                    variant="secondary"
-                    @click="close"
-                >
-                    Batal
-                </Button>
-                <Button
-                    variant="destructive"
-                    @click="confirm"
-                >
-                    Hapus
-                </Button>
+                <Button variant="secondary" @click="close"> Batal </Button>
+                <Button variant="destructive" @click="confirm"> Hapus </Button>
             </DialogFooter>
         </DialogContent>
     </Dialog>

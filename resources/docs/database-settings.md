@@ -14,12 +14,12 @@ Akses: `/settings/database` (middleware `auth` + `role:admin`).
 
 Di bagian atas terdapat empat kartu metrik:
 
-| Kartu | Isi |
-|---|---|
+| Kartu                | Isi                                                     |
+| -------------------- | ------------------------------------------------------- |
 | Ukuran File Database | Ukuran file database, path, dan ruang kosong (freelist) |
-| Total Log Aktivitas | Jumlah baris pada tabel `vote_logs` |
-| Surat Suara Masuk | Jumlah baris pada tabel `votes` |
-| Total Baris Data | Total seluruh baris + jumlah akun + total arsip |
+| Total Log Aktivitas  | Jumlah baris pada tabel `vote_logs`                     |
+| Surat Suara Masuk    | Jumlah baris pada tabel `votes`                         |
+| Total Baris Data     | Total seluruh baris + jumlah akun + total arsip         |
 
 Badge driver (mis. `SQLITE`) ditampilkan di samping judul halaman.
 
@@ -28,23 +28,23 @@ Badge driver (mis. `SQLITE`) ditampilkan di samping judul halaman.
 Tabel memuat setiap tabel database dengan kolom: nama tabel, kategori, banyak
 data, estimasi ukuran, porsi data, keterangan, dan **Aksi**.
 
-| Kategori | Contoh Tabel |
-|---|---|
-| Log & Aktivitas | `vote_logs` |
-| Voting | `votes`, `candidates` |
-| Pengguna | `users`, `profiles` |
-| Arsip | `votes_archived`, `vote_logs_archived`, `users_archived` |
-| Sistem | `sessions`, `migrations` |
+| Kategori        | Contoh Tabel                                             |
+| --------------- | -------------------------------------------------------- |
+| Log & Aktivitas | `vote_logs`                                              |
+| Voting          | `votes`, `candidates`                                    |
+| Pengguna        | `users`, `profiles`                                      |
+| Arsip           | `votes_archived`, `vote_logs_archived`, `users_archived` |
+| Sistem          | `sessions`, `migrations`                                 |
 
 Estimasi ukuran per tabel dihitung proporsional terhadap jumlah barisnya.
 
 ## Kontrol Pemeliharaan
 
-| Tombol | Fungsi |
-|---|---|
-| Segarkan | Memuat ulang data statistik tanpa pindah halaman |
-| Auto-Update | Mengulang pemuatan otomatis setiap 8 detik (aktif/mati) |
-| Optimalkan (VACUUM) | Memadatkan database |
+| Tombol              | Fungsi                                                  |
+| ------------------- | ------------------------------------------------------- |
+| Segarkan            | Memuat ulang data statistik tanpa pindah halaman        |
+| Auto-Update         | Mengulang pemuatan otomatis setiap 8 detik (aktif/mati) |
+| Optimalkan (VACUUM) | Memadatkan database                                     |
 
 Operasi **VACUUM** menyesuaikan driver: `VACUUM` (SQLite), `VACUUM ANALYZE`
 (PostgreSQL), dan `OPTIMIZE TABLE` (MySQL/MariaDB).
@@ -61,11 +61,11 @@ Setiap aksi reset wajib dikonfirmasi dengan mengetik teks `RESET`.
 Data tidak langsung hilang. Sebelum dihapus, data disalin lebih dulu ke tabel
 arsip bila tersedia:
 
-| Tabel Aktif | Tabel Arsip |
-|---|---|
-| `votes` | `votes_archived` |
+| Tabel Aktif | Tabel Arsip          |
+| ----------- | -------------------- |
+| `votes`     | `votes_archived`     |
 | `vote_logs` | `vote_logs_archived` |
-| `users` | `users_archived` |
+| `users`     | `users_archived`     |
 
 ## Perlindungan Data
 

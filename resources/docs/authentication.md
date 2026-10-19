@@ -24,13 +24,13 @@ untuk autentikasi**. Isinya hanya nilai acak agar konsisten dengan schema.
 
 Role disimpan di kolom `users.role` dengan nilai:
 
-| Role | Akses |
-|---|---|
-| `admin` | Dashboard, manajemen user, kandidat, hasil voting, reset voting |
+| Role       | Akses                                                            |
+| ---------- | ---------------------------------------------------------------- |
+| `admin`    | Dashboard, manajemen user, kandidat, hasil voting, reset voting  |
 | `kandidat` | Halaman profil kandidat, termasuk mengubah visi dan misi sendiri |
-| `pemilih` | Halaman voting |
+| `pemilih`  | Halaman voting                                                   |
 
-Pembatasan akses memakai middleware `role` yang di-*alias* ke
+Pembatasan akses memakai middleware `role` yang di-_alias_ ke
 `App\Http\Middleware\EnsureRole`. User yang salah role diarahkan ke halaman
 milik role-nya sendiri, bukan diberi halaman kosong.
 
@@ -38,11 +38,11 @@ milik role-nya sendiri, bukan diberi halaman kosong.
 
 Kolom `users.status` menyimpan:
 
-| Status | Arti |
-|---|---|
-| `aktif` | Akun normal, bisa login dan melakukan aksi sesuai role |
+| Status         | Arti                                                        |
+| -------------- | ----------------------------------------------------------- |
+| `aktif`        | Akun normal, bisa login dan melakukan aksi sesuai role      |
 | `sudah_voting` | Pemilih yang sudah memberikan suara, tidak bisa voting lagi |
-| `nonaktif` | Akun dinonaktifkan, tidak bisa masuk |
+| `nonaktif`     | Akun dinonaktifkan, tidak bisa masuk                        |
 
 ## Membuat Kode Login
 

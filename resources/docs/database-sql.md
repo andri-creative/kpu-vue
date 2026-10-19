@@ -111,13 +111,13 @@ ORDER BY tahun DESC;
 
 Tidak semua fungsi MySQL tersedia di SQLite:
 
-| MySQL | SQLite |
-|---|---|
-| `NOW()` | `datetime('now')` |
-| `DATE(voted_at)` | `date(voted_at)` |
-| `DATE_FORMAT` | `strftime('%Y-%m-%d', voted_at)` |
-| `IFNULL(a, b)` | `IFNULL(a, b)` atau `COALESCE(a, b)` |
-| `CONCAT(a, b)` | `a \|\| b` |
+| MySQL            | SQLite                               |
+| ---------------- | ------------------------------------ |
+| `NOW()`          | `datetime('now')`                    |
+| `DATE(voted_at)` | `date(voted_at)`                     |
+| `DATE_FORMAT`    | `strftime('%Y-%m-%d', voted_at)`     |
+| `IFNULL(a, b)`   | `IFNULL(a, b)` atau `COALESCE(a, b)` |
+| `CONCAT(a, b)`   | `a \|\| b`                           |
 
 ## Menjalankan Query di Terminal
 

@@ -137,7 +137,9 @@ function isSelf(admin: AdminRow): boolean {
             <Button @click="openCreate">Tambah Admin</Button>
         </div>
 
-        <div class="rounded-xl border border-sidebar-border/70 dark:border-sidebar-border">
+        <div
+            class="rounded-xl border border-sidebar-border/70 dark:border-sidebar-border"
+        >
             <Table>
                 <TableHeader>
                     <TableRow>
@@ -224,9 +226,7 @@ function isSelf(admin: AdminRow): boolean {
         <DialogContent>
             <DialogHeader>
                 <DialogTitle>Tambah Admin</DialogTitle>
-                <DialogDescription>
-                    Buat akun admin baru.
-                </DialogDescription>
+                <DialogDescription> Buat akun admin baru. </DialogDescription>
             </DialogHeader>
 
             <form class="space-y-4" @submit.prevent="submitCreate">
@@ -254,9 +254,11 @@ function isSelf(admin: AdminRow): boolean {
                     <InputError :message="form.errors.nama_lengkap" />
                 </div>
 
-                <p class="rounded-md border border-dashed p-3 text-sm text-muted-foreground">
-                    Kode login 6 angka dibuat otomatis oleh sistem dan hanya ditampilkan
-                    satu kali setelah admin disimpan.
+                <p
+                    class="rounded-md border border-dashed p-3 text-sm text-muted-foreground"
+                >
+                    Kode login 6 angka dibuat otomatis oleh sistem dan hanya
+                    ditampilkan satu kali setelah admin disimpan.
                 </p>
 
                 <DialogFooter class="gap-2">
@@ -278,9 +280,7 @@ function isSelf(admin: AdminRow): boolean {
         <DialogContent>
             <DialogHeader>
                 <DialogTitle>Edit Admin</DialogTitle>
-                <DialogDescription>
-                    Perbarui data admin.
-                </DialogDescription>
+                <DialogDescription> Perbarui data admin. </DialogDescription>
             </DialogHeader>
 
             <form class="space-y-4" @submit.prevent="submitEdit">
@@ -308,9 +308,11 @@ function isSelf(admin: AdminRow): boolean {
                     <InputError :message="form.errors.nama_lengkap" />
                 </div>
 
-                <p class="rounded-md border border-dashed p-3 text-sm text-muted-foreground">
-                    Kode login tidak dapat diubah dari sini. Gunakan form "Ganti Kode Login"
-                    pada halaman Keamanan.
+                <p
+                    class="rounded-md border border-dashed p-3 text-sm text-muted-foreground"
+                >
+                    Kode login tidak dapat diubah dari sini. Gunakan form "Ganti
+                    Kode Login" pada halaman Keamanan.
                 </p>
 
                 <DialogFooter class="gap-2">

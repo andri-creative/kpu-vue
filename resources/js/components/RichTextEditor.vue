@@ -80,10 +80,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <div
-        v-if="editor"
-        class="overflow-hidden rounded-md border"
-    >
+    <div v-if="editor" class="overflow-hidden rounded-md border">
         <!-- Toolbar -->
         <div class="flex flex-wrap items-center gap-1 border-b bg-muted/50 p-1">
             <Button
@@ -116,13 +113,17 @@ onBeforeUnmount(() => {
             >
                 <Strikethrough class="h-4 w-4" />
             </Button>
-            <div class="my-0.5 mx-1 w-px bg-border" />
+            <div class="mx-1 my-0.5 w-px bg-border" />
             <Button
                 type="button"
                 variant="ghost"
                 size="icon-sm"
-                @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
-                :class="{ 'bg-accent': editor.isActive('heading', { level: 2 }) }"
+                @click="
+                    editor.chain().focus().toggleHeading({ level: 2 }).run()
+                "
+                :class="{
+                    'bg-accent': editor.isActive('heading', { level: 2 }),
+                }"
                 title="Heading 2"
             >
                 <Heading2 class="h-4 w-4" />
@@ -131,13 +132,17 @@ onBeforeUnmount(() => {
                 type="button"
                 variant="ghost"
                 size="icon-sm"
-                @click="editor.chain().focus().toggleHeading({ level: 3 }).run()"
-                :class="{ 'bg-accent': editor.isActive('heading', { level: 3 }) }"
+                @click="
+                    editor.chain().focus().toggleHeading({ level: 3 }).run()
+                "
+                :class="{
+                    'bg-accent': editor.isActive('heading', { level: 3 }),
+                }"
                 title="Heading 3"
             >
                 <Heading3 class="h-4 w-4" />
             </Button>
-            <div class="my-0.5 mx-1 w-px bg-border" />
+            <div class="mx-1 my-0.5 w-px bg-border" />
             <Button
                 type="button"
                 variant="ghost"
@@ -185,14 +190,10 @@ onBeforeUnmount(() => {
             <!-- Line numbers gutter -->
             <div
                 ref="lineNumbersRef"
-                class="line-gutter flex-shrink-0 select-none text-right pr-2 pt-3 text-xs text-muted-foreground/50 bg-muted/20"
+                class="line-gutter flex-shrink-0 bg-muted/20 pt-3 pr-2 text-right text-xs text-muted-foreground/50 select-none"
                 aria-hidden="true"
             >
-                <div
-                    v-for="n in lineNumbers"
-                    :key="n"
-                    class="leading-relaxed"
-                >
+                <div v-for="n in lineNumbers" :key="n" class="leading-relaxed">
                     {{ n }}
                 </div>
             </div>

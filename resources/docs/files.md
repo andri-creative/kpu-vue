@@ -15,11 +15,11 @@ Akses: `/settings/files` (middleware `auth` + `role:admin`).
 Semua berkas dibaca hanya dari `public/uploads` (rekursif). Subfolder di
 dalamnya otomatis menjadi "sumber" (filter):
 
-| Subfolder | Keterangan |
-|---|---|
-| `public/uploads/candidates` | Foto kandidat yang diunggah lewat aplikasi |
-| `public/uploads/imports` | File Excel yang diunggah saat import data siswa |
-| `public/uploads/files` | Berkas umum (bila ada) |
+| Subfolder                   | Keterangan                                      |
+| --------------------------- | ----------------------------------------------- |
+| `public/uploads/candidates` | Foto kandidat yang diunggah lewat aplikasi      |
+| `public/uploads/imports`    | File Excel yang diunggah saat import data siswa |
+| `public/uploads/files`      | Berkas umum (bila ada)                          |
 
 Berkas yang berada langsung di dalam `public/uploads` masuk ke sumber
 **Lainnya**.
@@ -39,12 +39,12 @@ gambar, serta jumlah PDF & dokumen.
 
 ## Aksi
 
-| Aksi | Keterangan |
-|---|---|
-| Preview | Membuka dialog pratinjau untuk **semua jenis berkas** |
-| Salin link | Menyalin URL berkas ke clipboard |
-| Buka di Tab Baru | Membuka pratinjau pada tab baru |
-| Hapus | Menghapus berkas permanen setelah konfirmasi |
+| Aksi             | Keterangan                                            |
+| ---------------- | ----------------------------------------------------- |
+| Preview          | Membuka dialog pratinjau untuk **semua jenis berkas** |
+| Salin link       | Menyalin URL berkas ke clipboard                      |
+| Buka di Tab Baru | Membuka pratinjau pada tab baru                       |
+| Hapus            | Menghapus berkas permanen setelah konfirmasi          |
 
 Halaman ini **tidak menyediakan unggah berkas**; hanya menampilkan dan
 menghapus berkas yang sudah tersimpan.

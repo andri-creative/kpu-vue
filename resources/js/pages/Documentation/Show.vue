@@ -27,9 +27,7 @@ defineOptions({ layout: DocumentationLayout });
 
 const props = defineProps<DocumentationProps>();
 
-const flatPages = computed(() =>
-    props.sidebar.flatMap((group) => group.items),
-);
+const flatPages = computed(() => props.sidebar.flatMap((group) => group.items));
 
 const activeIndex = computed(() =>
     flatPages.value.findIndex((item) => item.slug === props.activeSlug),
@@ -56,9 +54,7 @@ const pageUrl = (slug: string) => documentation.show.url({ slug });
             <BreadcrumbList>
                 <BreadcrumbItem>
                     <BreadcrumbLink as-child>
-                        <Link :href="documentation.index()">
-                            Dokumentasi
-                        </Link>
+                        <Link :href="documentation.index()"> Dokumentasi </Link>
                     </BreadcrumbLink>
                 </BreadcrumbItem>
                 <template v-if="page">
@@ -78,13 +74,12 @@ const pageUrl = (slug: string) => documentation.show.url({ slug });
                     {{ page?.title ?? 'Dokumentasi' }}
                 </CardTitle>
                 <CardDescription>
-                    Halaman ini terbuka untuk umum dan tidak memerlukan
-                    login.
+                    Halaman ini terbuka untuk umum dan tidak memerlukan login.
                 </CardDescription>
             </CardHeader>
             <CardContent>
                 <DocumentationMarkdown v-if="page" :content="page.body" />
-                <p v-else class="text-muted-foreground text-sm">
+                <p v-else class="text-sm text-muted-foreground">
                     Belum ada halaman dokumentasi yang tersedia.
                 </p>
             </CardContent>

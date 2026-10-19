@@ -14,8 +14,8 @@ Akses: `/settings/logs` (middleware `auth` + `role:admin`).
 
 Setiap sumber dipetakan ke satu file log pada `config/log_viewer.php`:
 
-| Sumber | File |
-|---|---|
+| Sumber  | File                       |
+| ------- | -------------------------- |
 | Laravel | `storage/logs/laravel.log` |
 | Browser | `storage/logs/browser.log` |
 
@@ -26,11 +26,11 @@ menandakan file belum ada.
 
 - Menampilkan nomor baris di sisi kiri.
 - Pewarnaan baris berdasarkan level log:
-  - Merah — `ERROR`, `CRITICAL`, `ALERT`, `EMERGENCY`
-  - Kuning — `WARNING`
-  - Biru — `INFO`
-  - Abu — `DEBUG`
-  - Putih — lainnya
+    - Merah — `ERROR`, `CRITICAL`, `ALERT`, `EMERGENCY`
+    - Kuning — `WARNING`
+    - Biru — `INFO`
+    - Abu — `DEBUG`
+    - Putih — lainnya
 - **Auto-scroll** mengikuti baris terbaru. Menggulir ke atas otomatis
   mematikan auto-scroll sampai kembali ke dasar.
 - Bilah atas menampilkan path file, jumlah baris, ukuran file, dan status
@@ -38,11 +38,11 @@ menandakan file belum ada.
 
 ## Kontrol
 
-| Tombol | Fungsi |
-|---|---|
-| Mulai / Jeda | Memulai atau menghentikan streaming |
-| Bersihkan | Mengosongkan tampilan terminal (file tidak diubah) |
-| Reset Log | Mengosongkan isi file log secara permanen |
+| Tombol       | Fungsi                                             |
+| ------------ | -------------------------------------------------- |
+| Mulai / Jeda | Memulai atau menghentikan streaming                |
+| Bersihkan    | Mengosongkan tampilan terminal (file tidak diubah) |
+| Reset Log    | Mengosongkan isi file log secara permanen          |
 
 **Reset Log** wajib dikonfirmasi melalui dialog, karena file log akan
 dikosongkan permanen dan tidak bisa dibatalkan.
@@ -75,13 +75,13 @@ Atau langsung pada `config/log_viewer.php`.
 Di bawah terminal terdapat kartu **Pembersihan Storage** untuk menghapus file
 log dan cache yang menumpuk agar web tetap ringan dan storage tidak penuh:
 
-| Kategori | Isi |
-|---|---|
-| Log Aplikasi | `storage/logs/*.log` |
-| Cache Pail | `storage/pail/*.pail` |
-| Debugbar | `storage/debugbar/*.json` |
-| Inertia Devtools | `storage/inertia-devtools/*.json` |
-| Cache Framework | `storage/framework/views` dan `storage/framework/cache` |
+| Kategori         | Isi                                                     |
+| ---------------- | ------------------------------------------------------- |
+| Log Aplikasi     | `storage/logs/*.log`                                    |
+| Cache Pail       | `storage/pail/*.pail`                                   |
+| Debugbar         | `storage/debugbar/*.json`                               |
+| Inertia Devtools | `storage/inertia-devtools/*.json`                       |
+| Cache Framework  | `storage/framework/views` dan `storage/framework/cache` |
 
 - Setiap kategori menampilkan ukuran dan jumlah file, lengkap dengan tombol
   **Bersihkan** sendiri-sendiri.

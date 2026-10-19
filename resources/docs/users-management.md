@@ -13,11 +13,11 @@ paginate 15 baris per halaman, urutan nonaktif selalu di paling akhir.
 
 Tiga filter bekerja bersamaan:
 
-| Filter | Query | Keterangan |
-|---|---|---|
-| Pencarian | `search` | Mencocokkan NIS atau nama lengkap |
-| Kelas | `kelas` | Filter berdasarkan kelas pada tabel `profiles` |
-| Status | `status` | Filter status akun |
+| Filter    | Query    | Keterangan                                     |
+| --------- | -------- | ---------------------------------------------- |
+| Pencarian | `search` | Mencocokkan NIS atau nama lengkap              |
+| Kelas     | `kelas`  | Filter berdasarkan kelas pada tabel `profiles` |
+| Status    | `status` | Filter status akun                             |
 
 Filter diteruskan ke query memakai `when()` sehingga parameter kosong tidak
 menambahkan kondisi apa pun.
@@ -56,9 +56,9 @@ dipilih aksi reset kode. Daftar role yang bisa dipilih berasal dari
 
 Dua aksi tersedia:
 
-| Aksi | Route | Keterangan |
-|---|---|---|
-| Reset satu user | `PATCH users/{user}/reset-kode` | Mengganti kode user tersebut |
+| Aksi                        | Route                           | Keterangan                                            |
+| --------------------------- | ------------------------------- | ----------------------------------------------------- |
+| Reset satu user             | `PATCH users/{user}/reset-kode` | Mengganti kode user tersebut                          |
 | Buat kode untuk yang kosong | `PATCH users/reset-kode-kosong` | Mengisi kode semua user non-admin yang kodenya `NULL` |
 
 Kode baru selalu angka acak 6 digit yang belum dipakai user lain. Hasilnya

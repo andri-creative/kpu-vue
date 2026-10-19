@@ -40,9 +40,9 @@ dua kali tidak menghasilkan dua suara.
 
 Aturan ini dijaga dua lapis:
 
-| Lapis | Mekanisme |
-|---|---|
-| Database | Unique constraint pada `votes.user_id` |
+| Lapis    | Mekanisme                                          |
+| -------- | -------------------------------------------------- |
+| Database | Unique constraint pada `votes.user_id`             |
 | Aplikasi | Pengecekan status `sudah_voting` sebelum menyimpan |
 
 ## Halaman Hasil

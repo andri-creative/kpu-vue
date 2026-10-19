@@ -40,7 +40,7 @@ function submit() {
 <template>
     <Head title="Tambah User" />
 
-    <div class="flex flex-col space-y-6 p-4 max-w-lg">
+    <div class="flex max-w-lg flex-col space-y-6 p-4">
         <Heading
             variant="small"
             title="Tambah User"
@@ -84,13 +84,18 @@ function submit() {
                 <InputError :message="form.errors.kelas" />
             </div>
 
-            <p class="rounded-md border border-dashed p-3 text-sm text-muted-foreground">
-                Role otomatis sebagai pemilih dan kode login 6 angka dibuat otomatis
-                oleh sistem. Kode hanya ditampilkan satu kali setelah user disimpan.
+            <p
+                class="rounded-md border border-dashed p-3 text-sm text-muted-foreground"
+            >
+                Role otomatis sebagai pemilih dan kode login 6 angka dibuat
+                otomatis oleh sistem. Kode hanya ditampilkan satu kali setelah
+                user disimpan.
             </p>
 
             <div class="flex items-center gap-4">
-                <Button type="submit" :disabled="form.processing">Simpan</Button>
+                <Button type="submit" :disabled="form.processing"
+                    >Simpan</Button
+                >
                 <Link href="/users">
                     <Button type="button" variant="outline">Batal</Button>
                 </Link>

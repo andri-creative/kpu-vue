@@ -36,7 +36,9 @@ const objectUrl = useObjectUrl(previewSource);
 // Foto yang ditampilkan: file baru kalau ada, kalau tidak foto lama saat edit.
 const previewUrl = computed(() => objectUrl.value ?? props.existingUrl ?? null);
 const hasPreview = computed(() => previewUrl.value !== null);
-const isUsingExisting = computed(() => !objectUrl.value && props.existingUrl !== null);
+const isUsingExisting = computed(
+    () => !objectUrl.value && props.existingUrl !== null,
+);
 
 watch(
     () => props.modelValue,
@@ -89,7 +91,9 @@ const clearFile = () => {
 
 // Saat foto tersimpan masih ada, buang pilihan baru dan kembali ke foto lama.
 // Kalau tidak ada, tombol ini hanya menghapus pilihan baru.
-const clearLabel = computed(() => (props.existingUrl ? 'Kembali ke foto lama' : 'Hapus'));
+const clearLabel = computed(() =>
+    props.existingUrl ? 'Kembali ke foto lama' : 'Hapus',
+);
 </script>
 
 <template>
@@ -126,7 +130,9 @@ const clearLabel = computed(() => (props.existingUrl ? 'Kembali ke foto lama' : 
                     v-if="isCompressing"
                     class="absolute inset-0 flex items-center justify-center rounded-md bg-background/70"
                 >
-                    <LoaderCircle class="size-6 animate-spin text-muted-foreground" />
+                    <LoaderCircle
+                        class="size-6 animate-spin text-muted-foreground"
+                    />
                 </div>
             </div>
 
@@ -151,14 +157,16 @@ const clearLabel = computed(() => (props.existingUrl ? 'Kembali ke foto lama' : 
                     >
                         Ukuran asli {{ originalSizeKb }} KB
                         <template v-if="modelValue">
-                            → {{ formatKb(modelValue.size) }} KB setelah kompresi
+                            → {{ formatKb(modelValue.size) }} KB setelah
+                            kompresi
                         </template>
                     </p>
                     <p
                         v-if="isUsingExisting"
                         class="text-xs text-muted-foreground"
                     >
-                        Foto tersimpan saat ini. Pilih foto baru untuk menggantinya.
+                        Foto tersimpan saat ini. Pilih foto baru untuk
+                        menggantinya.
                     </p>
                 </div>
 
@@ -176,7 +184,7 @@ const clearLabel = computed(() => (props.existingUrl ? 'Kembali ke foto lama' : 
             </div>
         </div>
 
-        <p class="text-muted-foreground text-xs">
+        <p class="text-xs text-muted-foreground">
             Format JPG atau PNG, maksimal 1 MB. Foto dikompres ke WebP saat
             disimpan.
         </p>

@@ -43,25 +43,25 @@ INERTIA_DEVTOOLS_ENABLED=false
 
 ## Yang wajib diganti dari development ke production
 
-| Variabel | Development | Production | Keterangan |
-|---|---|---|---|
-| `APP_ENV` | `local` | `production` | Mengaktifkan perilaku produksi Laravel |
-| `APP_DEBUG` | `true` | `false` | Wajib; jika `true`, detail error bocor ke pengunjung |
-| `APP_KEY` | hasil `key:generate` | hasil `key:generate` | Jangan diubah setelah ada data terenkripsi |
-| `APP_URL` | `http://localhost:8085` | `https://domain-anda.com` | Dipakai untuk URL absolut di CLI/email |
-| `NGINX_PORT` | `8085` | `8085` / `80` | Port host; ganti jika bentrok |
-| `VITE_PORT` | `5174` | tidak dipakai | Hanya untuk dev server |
-| `LOG_LEVEL` | `debug` | `error` | Mengurangi ukuran log |
-| `DB_CONNECTION` | `sqlite` | `mysql` / `pgsql` / `sqlite` | Lihat catatan database |
-| `DB_HOST` dll. | opsional | sesuai server DB | Wajib jika memakai DB eksternal |
-| `CACHE_STORE` | `array` | `file` / `database` / `redis` | `array` tidak persist antar request |
-| `SESSION_DRIVER` | `database` | `database` / `file` | Pastikan tabel session sudah dimigrasi |
-| `QUEUE_CONNECTION` | `sync` | `database` / `redis` | Ganti jika memakai queue worker |
-| `FILESYSTEM_DISK` | `local` | `local` / `public` / `s3` | Sesuaikan kebutuhan upload |
-| `MAIL_MAILER` | `log` | `smtp` | Agar email benar-benar terkirim |
-| `XDEBUG_ENABLED` | `true` | `false` | Xdebug tidak ada di image production |
-| `DEBUGBAR_ENABLED` | `true` | `false` | Debugbar hanya dependency dev |
-| `INERTIA_DEVTOOLS_ENABLED` | `true` | `false` | Recorder DevTools dimatikan |
+| Variabel                   | Development             | Production                    | Keterangan                                           |
+| -------------------------- | ----------------------- | ----------------------------- | ---------------------------------------------------- |
+| `APP_ENV`                  | `local`                 | `production`                  | Mengaktifkan perilaku produksi Laravel               |
+| `APP_DEBUG`                | `true`                  | `false`                       | Wajib; jika `true`, detail error bocor ke pengunjung |
+| `APP_KEY`                  | hasil `key:generate`    | hasil `key:generate`          | Jangan diubah setelah ada data terenkripsi           |
+| `APP_URL`                  | `http://localhost:8085` | `https://domain-anda.com`     | Dipakai untuk URL absolut di CLI/email               |
+| `NGINX_PORT`               | `8085`                  | `8085` / `80`                 | Port host; ganti jika bentrok                        |
+| `VITE_PORT`                | `5174`                  | tidak dipakai                 | Hanya untuk dev server                               |
+| `LOG_LEVEL`                | `debug`                 | `error`                       | Mengurangi ukuran log                                |
+| `DB_CONNECTION`            | `sqlite`                | `mysql` / `pgsql` / `sqlite`  | Lihat catatan database                               |
+| `DB_HOST` dll.             | opsional                | sesuai server DB              | Wajib jika memakai DB eksternal                      |
+| `CACHE_STORE`              | `array`                 | `file` / `database` / `redis` | `array` tidak persist antar request                  |
+| `SESSION_DRIVER`           | `database`              | `database` / `file`           | Pastikan tabel session sudah dimigrasi               |
+| `QUEUE_CONNECTION`         | `sync`                  | `database` / `redis`          | Ganti jika memakai queue worker                      |
+| `FILESYSTEM_DISK`          | `local`                 | `local` / `public` / `s3`     | Sesuaikan kebutuhan upload                           |
+| `MAIL_MAILER`              | `log`                   | `smtp`                        | Agar email benar-benar terkirim                      |
+| `XDEBUG_ENABLED`           | `true`                  | `false`                       | Xdebug tidak ada di image production                 |
+| `DEBUGBAR_ENABLED`         | `true`                  | `false`                       | Debugbar hanya dependency dev                        |
+| `INERTIA_DEVTOOLS_ENABLED` | `true`                  | `false`                       | Recorder DevTools dimatikan                          |
 
 ## Update / deploy ulang
 

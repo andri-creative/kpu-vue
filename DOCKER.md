@@ -14,20 +14,20 @@ Panduan deploy dipisah sesuai kebutuhan:
 
 ## Perbedaan Development vs Production
 
-| Aspek | Development (`compose.dev.yaml`) | Production (`compose.prod.yaml`) |
-|---|---|---|
-| Nama service | `web`, `php-fpm`, `workspace` | `web`, `php-fpm` |
-| Source code | bind mount `./:/var/www` (live edit) | di-copy ke dalam image |
-| Asset frontend | Vite dev server (HMR) | di-build saat image dibuat (`npm run build`) |
-| Composer | dependency dev ikut | `--no-dev --optimize-autoloader` |
-| Xdebug | aktif (bisa dimatikan) | tidak terpasang |
-| `APP_ENV` / `APP_DEBUG` | `local` / `true` | `production` / `false` |
-| Config & route cache | `clear` tiap start | `config:cache` + `route:cache` |
-| Migrasi | manual | otomatis saat container start |
-| Restart policy | default | `unless-stopped` |
-| Port aplikasi | `8085` (`NGINX_PORT`) | `8085` (`NGINX_PORT`) |
-| Port Vite | `5174` (`VITE_PORT`) | tidak dipakai |
-| Storage | folder proyek | named volume `laravel-storage-production` |
+| Aspek                   | Development (`compose.dev.yaml`)     | Production (`compose.prod.yaml`)             |
+| ----------------------- | ------------------------------------ | -------------------------------------------- |
+| Nama service            | `web`, `php-fpm`, `workspace`        | `web`, `php-fpm`                             |
+| Source code             | bind mount `./:/var/www` (live edit) | di-copy ke dalam image                       |
+| Asset frontend          | Vite dev server (HMR)                | di-build saat image dibuat (`npm run build`) |
+| Composer                | dependency dev ikut                  | `--no-dev --optimize-autoloader`             |
+| Xdebug                  | aktif (bisa dimatikan)               | tidak terpasang                              |
+| `APP_ENV` / `APP_DEBUG` | `local` / `true`                     | `production` / `false`                       |
+| Config & route cache    | `clear` tiap start                   | `config:cache` + `route:cache`               |
+| Migrasi                 | manual                               | otomatis saat container start                |
+| Restart policy          | default                              | `unless-stopped`                             |
+| Port aplikasi           | `8085` (`NGINX_PORT`)                | `8085` (`NGINX_PORT`)                        |
+| Port Vite               | `5174` (`VITE_PORT`)                 | tidak dipakai                                |
+| Storage                 | folder proyek                        | named volume `laravel-storage-production`    |
 
 ## Update / deploy ulang
 

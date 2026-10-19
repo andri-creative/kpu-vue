@@ -51,7 +51,7 @@ function submit() {
 <template>
     <Head title="Edit User" />
 
-    <div class="flex flex-col space-y-6 p-4 max-w-lg">
+    <div class="flex max-w-lg flex-col space-y-6 p-4">
         <Heading
             variant="small"
             title="Edit User"
@@ -71,9 +71,12 @@ function submit() {
                 <InputError :message="form.errors.nis" />
             </div>
 
-            <p class="rounded-md border border-dashed p-3 text-sm text-muted-foreground">
-                Kode login 6 angka tidak dapat diubah dari halaman ini. Gunakan tombol
-                Reset Kode di halaman Manajemen User untuk membuat kode baru.
+            <p
+                class="rounded-md border border-dashed p-3 text-sm text-muted-foreground"
+            >
+                Kode login 6 angka tidak dapat diubah dari halaman ini. Gunakan
+                tombol Reset Kode di halaman Manajemen User untuk membuat kode
+                baru.
             </p>
 
             <div class="grid gap-2">
@@ -96,7 +99,9 @@ function submit() {
             </div>
 
             <div class="flex items-center gap-4">
-                <Button type="submit" :disabled="form.processing">Simpan</Button>
+                <Button type="submit" :disabled="form.processing"
+                    >Simpan</Button
+                >
                 <Link href="/users">
                     <Button type="button" variant="outline">Batal</Button>
                 </Link>

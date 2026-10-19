@@ -193,7 +193,9 @@ function submitImport() {
                     <p class="text-sm font-medium">
                         Drag &amp; Drop file Excel atau Pilih File
                     </p>
-                    <p class="text-xs text-muted-foreground">.xlsx / .xls (maks. 5 MB)</p>
+                    <p class="text-xs text-muted-foreground">
+                        .xlsx / .xls (maks. 5 MB)
+                    </p>
                 </div>
 
                 <div
@@ -203,8 +205,12 @@ function submitImport() {
                     <div class="flex items-center gap-3">
                         <FileSpreadsheet class="size-8 text-muted-foreground" />
                         <div>
-                            <p class="text-sm font-medium">{{ selectedFile.name }}</p>
-                            <p class="text-xs text-muted-foreground">{{ formattedSize }}</p>
+                            <p class="text-sm font-medium">
+                                {{ selectedFile.name }}
+                            </p>
+                            <p class="text-xs text-muted-foreground">
+                                {{ formattedSize }}
+                            </p>
                         </div>
                     </div>
                     <div class="flex gap-2">
@@ -212,7 +218,11 @@ function submitImport() {
                             <Trash2 />
                             Hapus
                         </Button>
-                        <Button size="sm" :disabled="isProcessing" @click="previewData">
+                        <Button
+                            size="sm"
+                            :disabled="isProcessing"
+                            @click="previewData"
+                        >
                             Preview Data
                         </Button>
                     </div>
@@ -234,19 +244,25 @@ function submitImport() {
                 <Card>
                     <CardHeader>
                         <CardDescription>Total Data</CardDescription>
-                        <CardTitle class="text-2xl">{{ preview.total }}</CardTitle>
+                        <CardTitle class="text-2xl">{{
+                            preview.total
+                        }}</CardTitle>
                     </CardHeader>
                 </Card>
                 <Card>
                     <CardHeader>
                         <CardDescription>Data Valid</CardDescription>
-                        <CardTitle class="text-2xl text-emerald-600">{{ preview.valid }}</CardTitle>
+                        <CardTitle class="text-2xl text-emerald-600">{{
+                            preview.valid
+                        }}</CardTitle>
                     </CardHeader>
                 </Card>
                 <Card>
                     <CardHeader>
                         <CardDescription>Data Error</CardDescription>
-                        <CardTitle class="text-2xl text-red-600">{{ preview.invalid }}</CardTitle>
+                        <CardTitle class="text-2xl text-red-600">{{
+                            preview.invalid
+                        }}</CardTitle>
                     </CardHeader>
                 </Card>
             </div>
@@ -256,9 +272,12 @@ function submitImport() {
             </Alert>
 
             <Alert v-else-if="preview.invalid > 0" variant="destructive">
-                <AlertTitle>Terdapat {{ preview.invalid }} data error</AlertTitle>
+                <AlertTitle
+                    >Terdapat {{ preview.invalid }} data error</AlertTitle
+                >
                 <AlertDescription>
-                    Perbaiki file Excel terlebih dahulu. Data tidak akan disimpan jika masih ada error.
+                    Perbaiki file Excel terlebih dahulu. Data tidak akan
+                    disimpan jika masih ada error.
                 </AlertDescription>
             </Alert>
 
@@ -278,23 +297,48 @@ function submitImport() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        <TableRow v-for="(row, index) in preview.rows" :key="row.row">
-                            <TableCell class="text-right">{{ index + 1 }}</TableCell>
+                        <TableRow
+                            v-for="(row, index) in preview.rows"
+                            :key="row.row"
+                        >
+                            <TableCell class="text-right">{{
+                                index + 1
+                            }}</TableCell>
                             <TableCell>{{ row.nis }}</TableCell>
                             <TableCell>{{ row.nama }}</TableCell>
                             <TableCell>{{ row.kelas }}</TableCell>
                             <TableCell>
-                                <Badge :variant="row.status === 'valid' ? 'default' : 'destructive'">
-                                    {{ row.status === 'valid' ? 'Valid' : 'Error' }}
+                                <Badge
+                                    :variant="
+                                        row.status === 'valid'
+                                            ? 'default'
+                                            : 'destructive'
+                                    "
+                                >
+                                    {{
+                                        row.status === 'valid'
+                                            ? 'Valid'
+                                            : 'Error'
+                                    }}
                                 </Badge>
                             </TableCell>
                             <TableCell>
-                                <ul v-if="row.errors.length" class="list-inside list-disc text-sm text-red-600">
-                                    <li v-for="error in row.errors" :key="error">
+                                <ul
+                                    v-if="row.errors.length"
+                                    class="list-inside list-disc text-sm text-red-600"
+                                >
+                                    <li
+                                        v-for="error in row.errors"
+                                        :key="error"
+                                    >
                                         Row {{ row.row }} — {{ error }}
                                     </li>
                                 </ul>
-                                <span v-else class="text-sm text-muted-foreground">-</span>
+                                <span
+                                    v-else
+                                    class="text-sm text-muted-foreground"
+                                    >-</span
+                                >
                             </TableCell>
                         </TableRow>
                     </TableBody>

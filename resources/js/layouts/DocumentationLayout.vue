@@ -72,7 +72,7 @@ const isActive = (slug: string) => slug === props.activeSlug;
                     <AppLogo />
                 </Link>
 
-                <span class="text-muted-foreground hidden text-sm sm:inline">
+                <span class="hidden text-sm text-muted-foreground sm:inline">
                     Dokumentasi KPU
                 </span>
 

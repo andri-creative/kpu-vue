@@ -18,18 +18,18 @@ Aplikasi ini dibangun dengan **Laravel 13**, **Inertia.js v3**, **Vue 3**,
 
 ## Fitur Utama
 
-| Fitur | Keterangan |
-|---|---|
-| Login kode 6 digit | Tanpa password, memakai kode unik per user |
-| Manajemen user | Tambah, ubah role, hapus, import dari Excel |
-| Manajemen kandidat | CRUD kandidat, upload foto, visi misi, urutan nomor |
-| Voting | Satu pemilih hanya bisa satu suara |
-| Hasil voting | Grafik per kandidat dan rekap hasil |
-| Arsip dan reset | Data voting diarsipkan per tahun sebelum dihapus |
-| Pengaturan database | Statistik kapasitas, optimasi VACUUM, dan reset data per tabel |
-| Terminal log | Pantau log real-time + pembersihan storage (log, pail, debugbar, cache) |
-| Storage file | Galeri berkas `public/uploads` (gambar, PDF, dokumen, Excel) dengan preview semua jenis & hapus |
-| Branding | Atur nama, tagline, logo, dan favicon aplikasi |
+| Fitur               | Keterangan                                                                                      |
+| ------------------- | ----------------------------------------------------------------------------------------------- |
+| Login kode 6 digit  | Tanpa password, memakai kode unik per user                                                      |
+| Manajemen user      | Tambah, ubah role, hapus, import dari Excel                                                     |
+| Manajemen kandidat  | CRUD kandidat, upload foto, visi misi, urutan nomor                                             |
+| Voting              | Satu pemilih hanya bisa satu suara                                                              |
+| Hasil voting        | Grafik per kandidat dan rekap hasil                                                             |
+| Arsip dan reset     | Data voting diarsipkan per tahun sebelum dihapus                                                |
+| Pengaturan database | Statistik kapasitas, optimasi VACUUM, dan reset data per tabel                                  |
+| Terminal log        | Pantau log real-time + pembersihan storage (log, pail, debugbar, cache)                         |
+| Storage file        | Galeri berkas `public/uploads` (gambar, PDF, dokumen, Excel) dengan preview semua jenis & hapus |
+| Branding            | Atur nama, tagline, logo, dan favicon aplikasi                                                  |
 
 ## Instalasi
 
@@ -65,12 +65,12 @@ php artisan serve
 
 Seeder membuat user contoh dengan kode yang bisa dipakai langsung:
 
-| Role | NIS | Kode |
-|---|---|---|
-| Admin | `0000000001` | `000000` |
-| Kandidat 1 | `1000000001` | `111111` |
-| Kandidat 2 | `1000000002` | `222222` |
-| Kandidat 3 | `1000000003` | `333333` |
+| Role         | NIS                       | Kode              |
+| ------------ | ------------------------- | ----------------- |
+| Admin        | `0000000001`              | `000000`          |
+| Kandidat 1   | `1000000001`              | `111111`          |
+| Kandidat 2   | `1000000002`              | `222222`          |
+| Kandidat 3   | `1000000003`              | `333333`          |
 | Pemilih 1–10 | `2000000000`–`2000000009` | `100001`–`100010` |
 
 Seeder bersifat idempotent, jadi `php artisan db:seed` bisa dijalankan berkali-kali

@@ -1,6 +1,14 @@
 <script setup lang="ts">
 import { Link, usePage } from '@inertiajs/vue3';
-import { BarChart3, BookOpen, FolderGit2, LayoutGrid, ListOrdered, RefreshCw, Users } from '@lucide/vue';
+import {
+    BarChart3,
+    BookOpen,
+    FolderGit2,
+    LayoutGrid,
+    ListOrdered,
+    RefreshCw,
+    Users,
+} from '@lucide/vue';
 import { computed } from 'vue';
 import AppLogo from '@/components/AppLogo.vue';
 import NavFooter from '@/components/NavFooter.vue';
@@ -29,37 +37,37 @@ const mainNavItems: NavItem[] = [
         icon: LayoutGrid,
     },
     ...(isAdmin.value
-            ? [
-                  {
-                      title: 'Manajemen User',
-                      href: '/users' as string,
-                      icon: Users,
-                  },
-                  {
-                      title: 'Kandidat',
-                      href: '/candidates' as string,
-                      icon: ListOrdered,
-                  },
-                  {
-                      title: 'Hasil Votes',
-                      href: '/hasil' as string,
-                      icon: BarChart3,
-                  },
-                  {
-                      title: 'Reset Voting',
-                      href: '/reset-pemilih' as string,
-                      icon: RefreshCw,
-                  },
-              ]
-            : isKandidat.value
-                ? [
-                      {
-                          title: 'Profil Kandidat',
-                          href: '/kandidat' as string,
-                          icon: ListOrdered,
-                      },
-                  ]
-                : []),
+        ? [
+              {
+                  title: 'Manajemen User',
+                  href: '/users' as string,
+                  icon: Users,
+              },
+              {
+                  title: 'Kandidat',
+                  href: '/candidates' as string,
+                  icon: ListOrdered,
+              },
+              {
+                  title: 'Hasil Votes',
+                  href: '/hasil' as string,
+                  icon: BarChart3,
+              },
+              {
+                  title: 'Reset Voting',
+                  href: '/reset-pemilih' as string,
+                  icon: RefreshCw,
+              },
+          ]
+        : isKandidat.value
+          ? [
+                {
+                    title: 'Profil Kandidat',
+                    href: '/kandidat' as string,
+                    icon: ListOrdered,
+                },
+            ]
+          : []),
 ];
 
 const footerNavItems: NavItem[] = [
