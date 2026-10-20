@@ -3,19 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Enums\RoleEnum;
+use App\Http\Requests\PrintStudentCardsRequest;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class StudentCardController extends Controller
 {
-    public function print(Request $request): Response
+    public function print(PrintStudentCardsRequest $request): Response
     {
-        $validated = $request->validate([
-            'student_ids' => ['required', 'array', 'min:1', 'max:500'],
-            'student_ids.*' => ['required', 'string', 'exists:users,id'],
-        ]);
+        $validated = $request->validated();
 
         $students = User::query()
             ->with('profile')
@@ -37,7 +34,7 @@ class StudentCardController extends Controller
 
         $pdf->setPaper('A4', 'portrait');
 
-        $filename = 'kartu-siswa-'.now()->format('Y-m-d').'.pdf';
+        $filename = now()->format('Ymd-His').'.pdf';
 
         return $pdf->stream($filename);
     }

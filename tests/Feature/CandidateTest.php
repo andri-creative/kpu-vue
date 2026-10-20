@@ -74,6 +74,7 @@ test('admin can create a candidate', function () {
 
     $candidate = Candidate::where('nis', '9999999999')->first();
     expect($candidate)->not->toBeNull();
+    expect($candidate->foto)->toEndWith('.webp');
     expect(file_exists(app('test.candidates_root').'/candidates/'.$candidate->foto))->toBeTrue();
 });
 

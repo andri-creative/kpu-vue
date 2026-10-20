@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Settings\ResetAllRequest;
+use App\Http\Requests\Settings\ResetTableRequest;
 use App\Models\VoteLog;
 use App\Support\DatabaseResetter;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use Inertia\Response;
 use Throwable;
@@ -260,12 +260,9 @@ class DatabaseController extends Controller
     /**
      * Reset seluruh isi satu tabel (diarsipkan lebih dulu bila memungkinkan).
      */
-    public function resetTable(Request $request): RedirectResponse
+    public function resetTable(ResetTableRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'table' => ['required', 'string', Rule::in(DatabaseResetter::resettableTables())],
-            'confirmation' => ['required', 'in:RESET'],
-        ]);
+        $validated = $request->validated();
 
         $table = (string) $validated['table'];
 
@@ -289,12 +286,8 @@ class DatabaseController extends Controller
     /**
      * Reset seluruh data aktif. Akun role admin tetap dipertahankan.
      */
-    public function resetAll(Request $request): RedirectResponse
+    public function resetAll(ResetAllRequest $request): RedirectResponse
     {
-        $request->validate([
-            'confirmation' => ['required', 'in:RESET'],
-        ]);
-
         try {
             $deleted = $this->resetter->resetAll();
             $total = array_sum($deleted);

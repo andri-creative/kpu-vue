@@ -67,10 +67,11 @@ test('admin users can access the student import page', function () {
 test('admin users can download the excel template', function () {
     $admin = User::factory()->admin()->create();
 
-    $this->actingAs($admin)
+    $response = $this->actingAs($admin)
         ->get(route('users.import.template'))
-        ->assertOk()
-        ->assertDownload('template-data-siswa.xlsx');
+        ->assertOk();
+
+    expect($response->headers->get('content-disposition'))->toMatch('/\d{8}-\d{6}(-\d+)?\.xlsx/');
 });
 
 test('preview marks every row of a valid file as valid', function () {

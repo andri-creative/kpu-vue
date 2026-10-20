@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Enums\RoleEnum;
 use App\Enums\StatusEnum;
+use App\Http\Requests\ReorderCandidatesRequest;
 use App\Http\Requests\StoreCandidateRequest;
 use App\Http\Requests\UpdateCandidateRequest;
 use App\Models\Candidate;
 use App\Models\User;
 use App\Support\KodeGenerator;
+use App\Support\UploadStore;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -19,6 +20,10 @@ use Inertia\Response;
 
 class CandidateController extends Controller
 {
+    public function __construct(
+        private readonly UploadStore $uploads,
+    ) {}
+
     public function index(): Response
     {
         $candidates = Candidate::query()
@@ -38,8 +43,7 @@ class CandidateController extends Controller
         $kode = KodeGenerator::generate();
 
         DB::transaction(function () use ($request, $validated, $kode): void {
-            $filename = time().'.'.$request->file('foto')->getClientOriginalExtension();
-            $request->file('foto')->move($this->candidatesPath(), $filename);
+            $filename = $this->uploads->store($request->file('foto'), 'candidates');
 
             $user = User::create([
                 'nis' => $validated['nis'],
@@ -86,9 +90,7 @@ class CandidateController extends Controller
                         unlink($oldPath);
                     }
                 }
-                $fotoName = time().'.'.$request->file('foto')->getClientOriginalExtension();
-                $request->file('foto')->move($this->candidatesPath(), $fotoName);
-                $candidate->foto = $fotoName;
+                $candidate->foto = $this->uploads->store($request->file('foto'), 'candidates');
             }
 
             $candidate->fill([
@@ -118,13 +120,9 @@ class CandidateController extends Controller
         return to_route('candidates.index');
     }
 
-    public function reorder(Request $request): RedirectResponse
+    public function reorder(ReorderCandidatesRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'order' => 'required|array',
-            'order.*.id' => 'required|integer|exists:candidates,id',
-            'order.*.nomor_urut' => 'required|integer|min:1',
-        ]);
+        $validated = $request->validated();
 
         // Langkah 1: set semua kandidat ke nomor_urut negatif (temporer) agar slot baru bebas.
         // Langkah 2: set ke nomor_urut baru dari yang terbesar ke terkecil, menghindari bentrok UNIQUE.

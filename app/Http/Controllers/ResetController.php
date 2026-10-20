@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\RoleEnum;
+use App\Http\Requests\ResetVotingRequest;
 use App\Models\Candidate;
 use App\Models\User;
 use App\Models\UsersArchived;
@@ -11,7 +12,6 @@ use App\Models\VoteLog;
 use App\Models\VoteLogsArchived;
 use App\Models\VotesArchived;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -33,12 +33,8 @@ class ResetController extends Controller
         ]);
     }
 
-    public function reset_voting(Request $request): RedirectResponse
+    public function reset_voting(ResetVotingRequest $request): RedirectResponse
     {
-        $request->validate([
-            'confirmation' => ['required', 'in:RESET'],
-        ]);
-
         $tahun = date('Y');
 
         $archivedVotes = DB::transaction(function () use ($tahun) {

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Settings\DeleteFileRequest;
 use App\Support\FileScanner;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -55,12 +55,9 @@ class FileController extends Controller
     /**
      * Hapus satu berkas dari storage.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(DeleteFileRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'collection' => ['required', 'string', Rule::in(array_column($this->scanner->collections(), 'key'))],
-            'path' => ['required', 'string'],
-        ]);
+        $validated = $request->validated();
 
         $deleted = $this->scanner->delete((string) $validated['collection'], (string) $validated['path']);
 

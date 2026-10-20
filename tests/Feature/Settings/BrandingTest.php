@@ -119,6 +119,7 @@ test('admin can upload a logo', function () {
     $stored = Setting::query()->where('key', 'logo_url')->value('value');
 
     expect($stored)->toStartWith('branding/')
+        ->and($stored)->toEndWith('.webp')
         ->and(File::exists($root.'/'.$stored))->toBeTrue();
 });
 

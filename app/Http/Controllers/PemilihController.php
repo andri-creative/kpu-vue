@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Enums\StatusEnum;
+use App\Http\Requests\StoreVoteRequest;
 use App\Models\Candidate;
 use App\Models\Vote;
 use App\Models\VoteLog;
@@ -31,11 +32,9 @@ class PemilihController extends Controller
         ]);
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(StoreVoteRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'candidate_id' => ['required', 'integer', 'exists:candidates,id'],
-        ]);
+        $validated = $request->validated();
 
         $user = $request->user();
 

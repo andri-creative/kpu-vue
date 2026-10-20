@@ -18,7 +18,7 @@ class DashboardExportController extends Controller
     {
         return Excel::download(
             new DashboardExport($metrics->all()),
-            'dashboard-'.now()->format('Y-m-d').'.xlsx'
+            now()->format('Ymd-His').'.xlsx'
         );
     }
 
@@ -33,6 +33,6 @@ class DashboardExportController extends Controller
         ]);
         $pdf->setPaper('A4', 'portrait');
 
-        return $pdf->stream('dashboard-'.now()->format('Y-m-d').'.pdf');
+        return $pdf->stream(now()->format('Ymd-His').'.pdf');
     }
 }

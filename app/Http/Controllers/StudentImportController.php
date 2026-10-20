@@ -25,7 +25,7 @@ class StudentImportController extends Controller
 
     public function template(): BinaryFileResponse
     {
-        return Excel::download(new StudentTemplateExport, 'template-data-siswa.xlsx');
+        return Excel::download(new StudentTemplateExport, now()->format('Ymd-His').'.xlsx');
     }
 
     public function preview(ImportStudentRequest $request): RedirectResponse

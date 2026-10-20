@@ -55,7 +55,7 @@ test('admin can download the dashboard as an excel file', function () {
 
     $response->assertOk();
 
-    expect($response->headers->get('content-disposition'))->toContain('dashboard-')
+    expect($response->headers->get('content-disposition'))->toMatch('/\d{8}-\d{6}(-\d+)?\.xlsx/')
         ->and($response->headers->get('content-type'))->toContain('spreadsheetml')
         ->and($response->streamedContent())->toStartWith('PK'); // ZIP magic bytes .xlsx
 });

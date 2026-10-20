@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Settings;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Settings\CleanStorageRequest;
+use App\Http\Requests\Settings\ResetLogRequest;
 use App\Support\LogTailer;
 use App\Support\StorageCleaner;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 use Inertia\Response;
 
@@ -124,11 +125,9 @@ class LogController extends Controller
     /**
      * Kosongkan file log yang dipilih.
      */
-    public function reset(Request $request): RedirectResponse
+    public function reset(ResetLogRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'source' => ['required', 'string', Rule::in(array_keys((array) config('log_viewer.sources', [])))],
-        ]);
+        $validated = $request->validated();
 
         $source = (string) $validated['source'];
         $path = (string) config("log_viewer.sources.{$source}");
@@ -146,11 +145,9 @@ class LogController extends Controller
     /**
      * Bersihkan satu kategori penyimpanan (log, cache, dsb).
      */
-    public function cleanStorage(Request $request): RedirectResponse
+    public function cleanStorage(CleanStorageRequest $request): RedirectResponse
     {
-        $validated = $request->validate([
-            'category' => ['required', 'string', Rule::in(array_column($this->storage->categories(), 'key'))],
-        ]);
+        $validated = $request->validated();
 
         $result = $this->storage->clean((string) $validated['category']);
 
